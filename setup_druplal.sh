@@ -1,6 +1,6 @@
 #!/bin/bash
 set -e
-function install_puppet_agent(){
+install_puppet_agent() {
 	puppet --version
 	if [ $? -eq 0 ]; then
 		echo "puppet is already installed"
@@ -17,18 +17,18 @@ function install_puppet_agent(){
 }
 
 
-function download_module(){
+download_module(){
 	repository_url="https://github.com/OpsTree/PuppetDrupalSetup.git"
 	git clone $repository_url /etc/puppet/environments/redcrackle
 }
 
  
-function apply_catalog(){
+apply_catalog(){
 	puppet apply --modulepath=/etc/puppet/environments/redcrackle/modules /etc/puppet/environments/redcrackle/manifest/drupal_stack.pp --debug
 	puppet apply --modulepath=/etc/puppet/environments/redcrackle/modules /etc/puppet/environments/redcrackle/manifest/deploy_drupal_app.pp --debug
 }
 
-function notify_script_execution() {
+notify_script_execution() {
 	wget google.com
 }
 
