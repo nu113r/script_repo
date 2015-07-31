@@ -33,7 +33,7 @@ function notify_script_execution() {
 }
 
 apt-get update
-apt-get install -y git wget
+#apt-get install -y git wget
 install_puppet_agent 
 download_module 
 apply_catalog 
